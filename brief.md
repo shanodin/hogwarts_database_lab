@@ -32,11 +32,9 @@ Part 6
 
 A house can be one of Gryffindor, Ravenclaw, Hufflepuff, or Slytherin and should be stored in the database with:
 
-A name
+<!-- A name (Optionally, a url for a logo)
 
-Optionally, a url for a logo
-
-Create a table for Houses
+Create a table for Houses -->
 
 Create a ruby model that can save() the details of a house
 

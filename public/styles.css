@@ -1,0 +1,25 @@
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/Hogwarts_crest.jpg");
+  background-size: 500px 500px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  cursor: url("/wand.ico"), auto;
+  color: white;
+  text-align: center;
+
+}
+
+.grid {
+  border: 1px solid mediumaquamarine;
+  width: 500px;
+  cursor: url('/wand.ico'), auto;
+  margin: auto;
+}
+
+.grid-row {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  border: 1px solid mediumaquamarine;
+}

@@ -1,14 +1,15 @@
 require_relative('sql_runner')
+require_relative('house')
 class Student
 
-  attr_accessor :first_name, :last_name, :house, :age
+  attr_accessor :first_name, :last_name, :age, :house_id
   attr_reader :id
 
   def initialize( options )
     @id = options['id'].to_i
     @first_name = options['first_name']
     @last_name = options['last_name']
-    @house = options['house']
+    @house_id = options['house_id'].to_i
     @age = options['age'].to_i
   end
 
@@ -17,13 +18,13 @@ class Student
       INSERT INTO students
         (first_name,
         last_name,
-        house,
+        house_id,
         age)
       VALUES
         ($1, $2, $3, $4)
       RETURNING *
     "
-    values = [@first_name, @last_name, @house, @age]
+    values = [@first_name, @last_name, @house_id, @age]
     student_data = SqlRunner.run(sql, values)
     @id = student_data.first()['id'].to_i
   end
@@ -53,15 +54,16 @@ class Student
     return result
   end
 
-
-
-
-
-
-
-
-
-
+  def house()
+    sql = "
+      SELECT * FROM houses
+      WHERE id = $1;
+    "
+    results_array = SqlRunner.run(sql, [@house_id])
+    house_hash = results_array[0]
+    house_object = House.new(house_hash)
+    return house_object
+  end
 
 
 

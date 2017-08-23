@@ -1,24 +1,34 @@
 <h1>Add a new student to the database</h1>
+<div class="grid">
 
 <form action="/students" method="POST">
-
+<div class="grid-row">
   <label for="first-name-field">First Name:</label>
   <input type="text" name="first_name" id="first-name-field" />
-  <br>
+</div>
+  <br><br>
+<div class="grid-row">
   <label for="last-name-field">Last Name:</label>
   <input type="text" name="last_name" id="last-name-field">
-  <br>
+</div>
+  <br><br>
+<div class="grid-row">
   <label for="house-select">Select Student's House:</label>
-  <select id="house-select" name="house">
-    <option value="Gryffindor">Gryffindor</option>
-    <option value="Ravenclaw">Ravenclaw</option>
-    <option value="Hufflepuff">Hufflepuff</option>
-    <option value="Slytherin">Slytherin</option>
+  <select id="house-select" name="house_id">
+    <% for house in @houses %>
+    <option value="<%= house.id %>"><%= house.name %></option>
+    <% end %>
   </select>
-  <br>
+</div>
+  <br><br>
+<div class="grid-row">
   <label for="age-select">Student Age:</label>
   <input type="number" name="age" id="age-select">
-  <br>
+</div>
+  <br><br>
+<div class="grid-row">
   <input type="submit" value="Add Student">
-
+</div>
 </form>
+
+</div>
