@@ -29,6 +29,10 @@ class Student
     @id = student_data.first()['id'].to_i
   end
 
+  def pretty_name()
+    return "#{@first_name} #{@last_name}"
+  end
+
   # def self.map_items(rows)
   #   return rows.map { |row| Student.new(row) }
   # end
@@ -65,8 +69,20 @@ class Student
     return house_object
   end
 
-
-
+  def update()
+    sql = "
+      UPDATE students SET
+        (first_name,
+        last_name,
+        house_id,
+        age)
+      =
+        ($1, $2, $3, $4)
+      WHERE id = $5;
+    "
+    values = [@first_name, @last_name, @house_id, @age, @id]
+    SqlRunner.run(sql, values)
+  end
 
 
 
