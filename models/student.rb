@@ -44,6 +44,8 @@ class Student
     return result
   end
 
+
+  # this could be a self.delete_by_id method and take in 'id' rather than @id
   def delete()
     sql = "DELETE FROM students
     WHERE id = $1;"
