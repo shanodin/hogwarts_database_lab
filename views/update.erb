@@ -9,7 +9,8 @@
   <label for="house-select">Select Student's House</label>
   <select name="house_id" id="house-select">
     <% for house in @houses %>
-    <option value="<%= house.id %>"><%= ' sselected' if @student.house.name == '@student.house.name' %><%= house.name %></option>
+    <option <%= 'selected' if house.id == @student.house_id %>
+    value= <%= house.id %>><%= house.name %></option>
     <% end %>
   </select>
 <br><br>
